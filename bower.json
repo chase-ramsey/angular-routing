@@ -1,0 +1,22 @@
+{
+  "name": "angular-routing",
+  "homepage": "https://github.com/chase-ramsey/angular-routing",
+  "authors": [
+    "Chase Ramsey <ramsey.chase@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-route": "^1.5.6"
+  }
+}
