@@ -2,18 +2,14 @@ angular.module('app', ['ngRoute'])
   .config(($routeProvider) => {
     $routeProvider
       .when('/', {
-        template: '<a href="#/hello">Say Hello</a><h1>Home Sweet Home</h1>',
+        templateUrl: "app/partials/home.html"
       })
       .when('/hello', {
-        template: `Say hello to:
-          <form ng-submit=hello()>
-            <input ng-model="name">
-            <input type="submit">
-          </form>`,
+        templateUrl: "app/partials/hello.html",
         controller: 'HelloCtrl',
       })
       .when('/hello/:name', {
-        template: '<a href="#/">Home</a> <a href="#/hello">Back</a><h1>{{header}}</h1>',
+        templateUrl: "app/partials/hello-person.html",
         controller: 'HelloPersonCtrl',
       })
       .otherwise('/')
