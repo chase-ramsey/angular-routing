@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'angular.filter'])
   .config(($routeProvider) => {
     $routeProvider
       .when('/', {
@@ -6,11 +6,11 @@ angular.module('app', ['ngRoute'])
       })
       .when('/hello', {
         templateUrl: "app/partials/hello.html",
-        controller: 'HelloCtrl',
+        controller: 'HelloCtrl'
       })
       .when('/hello/:name', {
         templateUrl: "app/partials/hello-person.html",
-        controller: 'HelloPersonCtrl',
+        controller: 'HelloPersonCtrl'
       })
       .otherwise('/')
   })
@@ -20,3 +20,15 @@ angular.module('app', ['ngRoute'])
   .controller('HelloPersonCtrl', function ($scope, $routeParams) {
     $scope.header = `Hello ${$routeParams.name}`
   })
+  .filter('camelcase', () => (
+      string => {
+        const upperCamelCase = string
+          .toLowerCase()
+          .split(' ')
+          .map(word => word[0].toUpperCase() + word.slice(1))
+          .join('')
+
+        return upperCamelCase[0].toLowerCase() + upperCamelCase.slice(1)
+      }
+    )
+  )
